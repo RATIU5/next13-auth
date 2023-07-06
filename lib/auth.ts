@@ -1,5 +1,7 @@
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
+import { getServerSession } from "next-auth";
+import { GetServerSidePropsContext } from "next";
 
 export const nextAuthConfig = {
   providers: [
@@ -13,3 +15,10 @@ export const nextAuthConfig = {
     }),
   ],
 };
+
+export async function getSession(ctx: {
+  req: GetServerSidePropsContext["req"];
+  res: GetServerSidePropsContext["res"];
+}) {
+  return getServerSession(ctx.req, ctx.res, nextAuthConfig);
+}

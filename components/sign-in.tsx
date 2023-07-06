@@ -4,9 +4,12 @@ import { signIn } from "next-auth/react";
 
 const SignIn = () => {
   return (
-    <div>
-      <button onClick={() => signIn()}>Sign in</button>
-    </div>
+    <button
+      onClick={() => signIn()}
+      className="text-lg mb-24 px-4 py-2 rounded-xl hover:bg-neutral-200"
+    >
+      Sign in to continue
+    </button>
   );
 };
 
